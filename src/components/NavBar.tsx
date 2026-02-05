@@ -10,7 +10,7 @@ export default function NavBar() {
   }
   return (
     <nav style={{ display: 'flex', gap: 12, padding: 12, borderBottom: '1px solid #ddd' }}>
-      <Link to="/">Meus Tickets</Link>
+      <Link to="/">Tickets</Link>
       <Link to="/tickets/novo">Novo Ticket</Link>
       <div style={{ marginLeft: 'auto', display: 'flex', gap: 12 }}>
         {me ? (
