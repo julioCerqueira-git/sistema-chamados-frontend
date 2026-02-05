@@ -15,7 +15,7 @@ export default function TicketsList() {
   if (error) return <div style={{ color: 'red' }}>{error}</div>
   return (
     <div style={{ maxWidth: 800, margin: '16px auto' }}>
-      <h2>Meus Tickets</h2>
+      <h2>Tickets</h2>
       {items.length === 0 ? <div>Nenhum ticket</div> : (
         <ul style={{ display: 'grid', gap: 8, padding: 0, listStyle: 'none' }}>
           {items.map(t => (
