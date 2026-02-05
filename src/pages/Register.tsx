@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { auth } from '../lib/api'
 import { useAuth } from '../lib/auth.tsx'
 import { useNavigate } from 'react-router-dom'
+import { extractErrorMessage } from '../lib/utils'
 
 export default function Register() {
   const [name, setName] = useState('')
@@ -22,7 +23,7 @@ export default function Register() {
       setToken(res.access_token)
       navigate('/')
     } catch (err: any) {
-      setError(err?.response?.data?.message || 'Erro ao registrar')
+      setError(extractErrorMessage(err, 'Erro ao registrar'))
     } finally {
       setLoading(false)
     }
