@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { auth } from '../lib/api'
 import { useAuth } from '../lib/auth.tsx'
 import { useNavigate } from 'react-router-dom'
+import { extractErrorMessage } from '../lib/utils'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -21,7 +22,7 @@ export default function Login() {
       setToken(res.access_token)
       navigate('/')
     } catch (err: any) {
-      setError(err?.response?.data?.message || 'Erro ao fazer login')
+      setError(extractErrorMessage(err, 'Erro ao fazer login'))
     } finally {
       setLoading(false)
     }
